@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @player.name
+%p
+  %b Uniq hash:
+  = @player.uniq_hash
+
+= link_to 'Edit', edit_player_path(@player)
+\|
+= link_to 'Back', players_path

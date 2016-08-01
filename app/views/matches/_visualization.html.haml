@@ -1,0 +1,18 @@
+-board = @match.get_board.get_board.get_fields
+-last_position = @match.get_last_position
+-winning_line = @match.get_board.winning_line if @match.ended
+-if winning_line
+  -wl = []
+  -winning_line.each do |point|
+    -wl.push({x: point.x, y: point.y, z:point.z})
+-board.each_with_index do |row, x|
+  .ttt-row>
+    -row.each_with_index do |slice, y|
+      .ttt-slice>
+        -slice.each_with_index do |field, z|
+          .ttt-field{x: x, y:y, z:z, class: ((last_position and last_position[:x].to_i == x and last_position[:y].to_i == y and last_position[:z].to_i == z) ? "highlight" : "")+" "+((wl and wl.include?({x:x, y:y, z:z})) ? "winner" : " ")  }>
+            -if board[x][y][z] 
+              = board[x][y][z] 
+            -else 
+              &nbsp;
+    %br/

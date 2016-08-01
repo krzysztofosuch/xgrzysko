@@ -1,0 +1,3 @@
+class GameplayException < Exception 
+
+end
