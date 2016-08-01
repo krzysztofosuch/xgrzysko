@@ -1,0 +1,17 @@
+%p#notice= notice
+:javascript 
+  setTimeout(function() {
+    document.location.reload();
+  }, 1000);
+.col-xs-1
+  X
+  = @match.player_x.key
+.col-xs-6
+  %div#visualization
+    = render partial: 'visualization'
+.col-xs-1
+  O
+  = @match.player_o.key
+= link_to 'Edit', edit_match_path(@match)
+\|
+= link_to 'Back', matches_path
